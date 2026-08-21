@@ -105,43 +105,47 @@ flowchart TB
 ## **🔗 𝐂𝐨𝐦𝐩𝐨𝐧𝐞𝐧𝐭 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧𝐬𝐡𝐢𝐩𝐬**
 
 ```mermaid
-architecture-beta
-    group edge(cloud)[Public Edge]
-    service browser(internet)[Browser] in edge
-    service proxy(server)[Nginx / Caddy] in edge
+flowchart TB
+    subgraph EDGE["Public Edge"]
+        BROWSER["Browser"]
+        PROXY["Nginx / Caddy"]
+    end
 
-    group platform(server)[APIH9S5]
-    service ui(server)[Liquid Glass UI] in platform
-    service api(server)[Flask API] in platform
-    service manager(server)[Project Manager] in platform
-    service process(server)[Process Manager] in platform
+    subgraph PLATFORM["APIH9S5"]
+        UI["Liquid Glass UI"]
+        API["Flask API"]
+        MANAGER["Project Manager"]
+        PROCESS["Process Manager"]
+    end
 
-    group storage(database)[State + Storage]
-    service registry(database)[ports.json] in storage
-    service metadata(database)[.meta.json] in storage
-    service files(disk)[projects/] in storage
-    service logs(disk)[Process Logs] in storage
+    subgraph STORAGE["State + Storage"]
+        REGISTRY["ports.json"]
+        METADATA[".meta.json"]
+        FILES["projects/"]
+        LOGS["Process Logs"]
+    end
 
-    group apps(server)[Hosted Applications]
-    service app1(server)[Flask App A] in apps
-    service app2(server)[Flask App B] in apps
-    service app3(server)[Flask App C] in apps
+    subgraph APPS["Hosted Applications"]
+        APP1["Flask App A"]
+        APP2["Flask App B"]
+        APP3["Flask App C"]
+    end
 
-    browser:R --> L:proxy
-    proxy:R --> L:ui
-    ui:R --> L:api
-    api:R --> L:manager
-    manager:R --> L:process
-    manager:B --> T:registry
-    manager:B --> T:metadata
-    manager:B --> T:files
-    process:B --> T:logs
-    process:R --> L:app1
-    process:R --> L:app2
-    process:R --> L:app3
+    BROWSER --> PROXY
+    PROXY --> UI
+    UI --> API
+    API --> MANAGER
+    MANAGER --> PROCESS
+    MANAGER --> REGISTRY
+    MANAGER --> METADATA
+    MANAGER --> FILES
+    PROCESS --> LOGS
+    PROCESS --> APP1
+    PROCESS --> APP2
+    PROCESS --> APP3
 ```
 
-**𝐆𝐢𝐭𝐇𝐮𝐛 𝐬𝐮𝐩𝐩𝐨𝐫𝐭𝐬 𝐌𝐞𝐫𝐦𝐚𝐢𝐝 𝐝𝐢𝐚𝐠𝐫𝐚𝐦𝐬 𝐢𝐧 𝐌𝐚𝐫𝐤𝐝𝐨𝐰𝐧, 𝐦𝐚𝐤𝐢𝐧𝐠 𝐭𝐡𝐞𝐬𝐞 𝐝𝐢𝐚𝐠𝐫𝐚𝐦𝐬 𝐯𝐞𝐫𝐬𝐢𝐨𝐧-𝐜𝐨𝐧𝐭𝐫𝐨𝐥𝐥𝐞𝐝 𝐰𝐢𝐭𝐡 𝐭𝐡𝐞 𝐫𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐲.**
+**GitHub supports Mermaid diagrams in Markdown, making these diagrams version-controlled with the repository.**
 
 ---
 
@@ -151,13 +155,13 @@ architecture-beta
 sequenceDiagram
     autonumber
     actor User
-    participant UI as 💎 Web UI
-    participant API as ⚙️ Flask API
-    participant FS as 💾 Filesystem
-    participant Registry as 🗂️ Registry
-    participant Process as ⚡ Process Manager
-    participant App as 🐍 Flask Application
-    participant Proxy as 🔀 Reverse Proxy
+    participant UI as Web UI
+    participant API as Flask API
+    participant FS as Filesystem
+    participant Registry as Registry
+    participant Process as Process Manager
+    participant App as Flask Application
+    participant Proxy as Reverse Proxy
 
     User->>UI: Select ZIP
     UI->>API: POST /api/upload
@@ -401,13 +405,13 @@ DELETE
 
 **𝐁𝐞𝐟𝐨𝐫𝐞 𝐩𝐮𝐛𝐥𝐢𝐜 𝐝𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭:**
 
-𝟏. **𝐂𝐡𝐚𝐧𝐠𝐞 𝐭𝐡𝐞 𝐝𝐞𝐟𝐚𝐮𝐥𝐭 𝐚𝐝𝐦𝐢𝐧 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝.**
-𝟐. **𝐔𝐬𝐞 𝐚 𝐬𝐭𝐫𝐨𝐧𝐠 𝐫𝐚𝐧𝐝𝐨𝐦 `SECRET_KEY`.**
-𝟑. **𝐔𝐬𝐞 𝐇𝐓𝐓𝐏𝐒.**
-𝟒. **𝐏𝐥𝐚𝐜𝐞 𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐛𝐞𝐡𝐢𝐧𝐝 𝐍𝐠𝐢𝐧𝐱, 𝐂𝐚𝐝𝐝𝐲, 𝐨𝐫 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐩𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧 𝐩𝐫𝐨𝐱𝐲.**
-𝟓. **𝐑𝐞𝐬𝐭𝐫𝐢𝐜𝐭 𝐮𝐩𝐥𝐨𝐚𝐝 𝐬𝐢𝐳𝐞 𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐭𝐲𝐩𝐞𝐬.**
-𝟔. **𝐍𝐞𝐯𝐞𝐫 𝐞𝐱𝐞𝐜𝐮𝐭𝐞 𝐮𝐧𝐭𝐫𝐮𝐬𝐭𝐞𝐝 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐝𝐞 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐢𝐬𝐨𝐥𝐚𝐭𝐢𝐨𝐧.**
-𝟕. **𝐂𝐨𝐧𝐬𝐢𝐝𝐞𝐫 𝐜𝐨𝐧𝐭𝐚𝐢𝐧𝐞𝐫-𝐛𝐚𝐬𝐞𝐝 𝐬𝐚𝐧𝐝𝐛𝐨𝐱𝐢𝐧𝐠 𝐟𝐨𝐫 𝐦𝐮𝐥𝐭𝐢-𝐮𝐬𝐞𝐫 𝐡𝐨𝐬𝐭𝐢𝐧𝐠.**
+𝟏. **𝐂𝐡𝐚𝐧𝐠𝐞 𝐭𝐡𝐞 𝐝𝐞𝐟𝐚𝐮𝐥𝐭 𝐚𝐝𝐦𝐢𝐧 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝.**  
+𝟐. **𝐔𝐬𝐞 𝐚 𝐬𝐭𝐫𝐨𝐧𝐠 𝐫𝐚𝐧𝐝𝐨𝐦 `SECRET_KEY`.**  
+𝟑. **𝐔𝐬𝐞 𝐇𝐓𝐓𝐏𝐒.**  
+𝟒. **𝐏𝐥𝐚𝐜𝐞 𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐛𝐞𝐡𝐢𝐧𝐝 𝐍𝐠𝐢𝐧𝐱, 𝐂𝐚𝐝𝐝𝐲, 𝐨𝐫 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐩𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧 𝐩𝐫𝐨𝐱𝐲.**  
+𝟓. **𝐑𝐞𝐬𝐭𝐫𝐢𝐜𝐭 𝐮𝐩𝐥𝐨𝐚𝐝 𝐬𝐢𝐳𝐞 𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐭𝐲𝐩𝐞𝐬.**  
+𝟔. **𝐍𝐞𝐯𝐞𝐫 𝐞𝐱𝐞𝐜𝐮𝐭𝐞 𝐮𝐧𝐭𝐫𝐮𝐬𝐭𝐞𝐝 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐝𝐞 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐢𝐬𝐨𝐥𝐚𝐭𝐢𝐨𝐧.**  
+𝟕. **𝐂𝐨𝐧𝐬𝐢𝐝𝐞𝐫 𝐜𝐨𝐧𝐭𝐚𝐢𝐧𝐞𝐫-𝐛𝐚𝐬𝐞𝐝 𝐬𝐚𝐧𝐝𝐛𝐨𝐱𝐢𝐧𝐠 𝐟𝐨𝐫 𝐦𝐮𝐥𝐭𝐢-𝐮𝐬𝐞𝐫 𝐡𝐨𝐬𝐭𝐢𝐧𝐠.**  
 𝟖. **𝐏𝐫𝐞𝐯𝐞𝐧𝐭 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐟𝐫𝐨𝐦 𝐞𝐱𝐩𝐨𝐬𝐢𝐧𝐠 𝐬𝐞𝐧𝐬𝐢𝐭𝐢𝐯𝐞 `.env` 𝐟𝐢𝐥𝐞𝐬.**
 
 > **⚠️ 𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓:** **𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐞𝐱𝐞𝐜𝐮𝐭𝐞𝐬 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐏𝐲𝐭𝐡𝐨𝐧 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧𝐬 𝐚𝐬 𝐬𝐮𝐛𝐩𝐫𝐨𝐜𝐞𝐬𝐬𝐞𝐬. 𝐓𝐫𝐞𝐚𝐭 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐝𝐞 𝐚𝐬 𝐮𝐧𝐭𝐫𝐮𝐬𝐭𝐞𝐝 𝐜𝐨𝐝𝐞.**
@@ -418,16 +422,16 @@ DELETE
 
 ```mermaid
 flowchart LR
-    INTERNET["🌍 Internet"]
-    DNS["🌐 Domain / DNS"]
-    TLS["🔒 HTTPS / TLS"]
-    EDGE["🔀 Nginx / Caddy"]
-    API["🚀 APIH9S5"]
-    STORAGE["💾 Project Filesystem"]
-    REGISTRY["🗂️ Runtime Registry"]
-    APP1["🐍 Flask App :5000"]
-    APP2["🐍 Flask App :5001"]
-    APP3["🐍 Flask App :5002"]
+    INTERNET["Internet"]
+    DNS["Domain / DNS"]
+    TLS["HTTPS / TLS"]
+    EDGE["Nginx / Caddy"]
+    API["APIH9S5"]
+    STORAGE["Project Filesystem"]
+    REGISTRY["Runtime Registry"]
+    APP1["Flask App :5000"]
+    APP2["Flask App :5001"]
+    APP3["Flask App :5002"]
 
     INTERNET --> DNS
     DNS --> TLS
