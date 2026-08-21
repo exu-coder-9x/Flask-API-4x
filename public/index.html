@@ -1,0 +1,1770 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>𝐄𝐗𝐔𝐂𝐎𝐃𝐄𝐑 · 𝐅𝐥𝐚𝐬𝐤 𝐇𝐨𝐬𝐭𝐢𝐧𝐠 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --glass-bg: rgba(255, 255, 255, 0.04);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --glass-highlight: rgba(255, 255, 255, 0.12);
+            --glass-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            --cyan: #22d3ee;
+            --cyan-light: #67e8f9;
+            --blue: #38bdf8;
+            --blue-dark: #60a5fa;
+            --accent-gradient: linear-gradient(135deg, #a78bfa, #22d3ee);
+            --text-primary: #f8fafc;
+            --text-secondary: rgba(248, 250, 252, 0.65);
+            --text-muted: rgba(248, 250, 252, 0.4);
+            --danger: #f87171;
+            --success: #4ade80;
+            --warning: #fbbf24;
+            --purple: #7b2ffc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html, body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-weight: 700;
+            min-height: 100vh;
+            overflow-x: hidden;
+            color: var(--text-primary);
+            background: #0a0e1a;
+        }
+
+        /* ============================================================
+           ANIMATED BACKGROUND (matching login)
+           ============================================================ */
+        .bg-container {
+            position: fixed;
+            inset: 0;
+            z-index: -2;
+            overflow: hidden;
+        }
+
+        .bg-image {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://i.ibb.co.com/k2ZL25g3/background.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+            animation: slowZoom 25s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        .bg-image.error {
+            background-image: linear-gradient(135deg, #0a0e1a 0%, #1a1f3a 40%, #2a1a4a 70%, #0d0b2b 100%);
+            opacity: 1;
+        }
+
+        @keyframes slowZoom {
+            0% { transform: scale(1) rotate(0deg); }
+            50% { transform: scale(1.08) rotate(0.5deg); }
+            100% { transform: scale(1.12) rotate(-0.5deg); }
+        }
+
+        .bg-overlay {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(circle at 30% 40%, rgba(123, 47, 252, 0.12) 0%, transparent 55%),
+                radial-gradient(circle at 70% 60%, rgba(0, 212, 255, 0.08) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.2) 0%, transparent 70%);
+            animation: pulseOverlay 10s ease-in-out infinite alternate;
+            mix-blend-mode: overlay;
+        }
+
+        @keyframes pulseOverlay {
+            0% { opacity: 0.5; }
+            50% { opacity: 0.8; }
+            100% { opacity: 0.5; }
+        }
+
+        .bg-grid {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            animation: gridMove 30s linear infinite;
+        }
+
+        @keyframes gridMove {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(60px, 60px); }
+        }
+
+        .blob {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(90px);
+            opacity: 0.2;
+            animation: floatBlob 25s ease-in-out infinite;
+            mix-blend-mode: screen;
+        }
+
+        .blob.a {
+            width: 500px;
+            height: 500px;
+            background: #7b2ffc;
+            top: -150px;
+            left: -150px;
+            animation-delay: 0s;
+        }
+
+        .blob.b {
+            width: 450px;
+            height: 450px;
+            background: #00d4ff;
+            bottom: -150px;
+            right: -150px;
+            animation-delay: -8s;
+        }
+
+        .blob.c {
+            width: 350px;
+            height: 350px;
+            background: #ec4899;
+            top: 45%;
+            left: 55%;
+            animation-delay: -16s;
+            opacity: 0.12;
+        }
+
+        .blob.d {
+            width: 300px;
+            height: 300px;
+            background: #f59e0b;
+            top: 10%;
+            left: 30%;
+            animation-delay: -5s;
+            opacity: 0.1;
+        }
+
+        @keyframes floatBlob {
+            0%, 100% { transform: translate(0, 0) scale(1) rotate(0deg); }
+            25% { transform: translate(80px, -60px) scale(1.1) rotate(5deg); }
+            50% { transform: translate(-40px, 80px) scale(0.95) rotate(-3deg); }
+            75% { transform: translate(60px, 40px) scale(1.05) rotate(4deg); }
+        }
+
+        /* ============================================================
+           GLASS CARD STYLING
+           ============================================================ */
+        .liquid-glass {
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(25px) saturate(160%);
+            -webkit-backdrop-filter: blur(25px) saturate(160%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 
+                0 20px 60px rgba(0, 0, 0, 0.5),
+                inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            border-radius: 40px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .liquid-glass::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.04) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(255,255,255,0.02) 100%
+            );
+            pointer-events: none;
+        }
+
+        .liquid-glass-strong {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255,255,255,0.08);
+        }
+
+        .noise {
+            position: fixed;
+            inset: 0;
+            z-index: -1;
+            opacity: 0.02;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        #app {
+            min-height: 100vh;
+            padding: 24px;
+            padding-top: max(24px, env(safe-area-inset-top));
+            padding-bottom: max(24px, env(safe-area-inset-bottom));
+        }
+
+        /* ============================================================
+           HEADER / NAVBAR - Glass style
+           ============================================================ */
+        .app-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1400px;
+            margin: 0 auto 32px;
+            padding: 16px 28px;
+            position: relative;
+            z-index: 10;
+            background: rgba(255, 255, 255, 0.04);
+            backdrop-filter: blur(30px) saturate(180%);
+            -webkit-backdrop-filter: blur(30px) saturate(180%);
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 30px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .app-header::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 30px;
+            background: linear-gradient(135deg, 
+                rgba(255,255,255,0.05) 0%, 
+                transparent 30%, 
+                transparent 70%, 
+                rgba(255,255,255,0.02) 100%
+            );
+            pointer-events: none;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        /* ----- GLOWING LOGO (matching login page) ----- */
+        .logo-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .logo-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #7b2ffc, #00d4ff, #ec4899, #7b2ffc);
+            animation: spinRing 4s linear infinite;
+            padding: 2px;
+        }
+
+        @keyframes spinRing {
+            to { transform: rotate(360deg); }
+        }
+
+        .logo-img {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.1);
+            background: #0a0e1a;
+            transition: transform 0.5s ease;
+            box-shadow: 0 4px 30px rgba(123, 47, 252, 0.3);
+        }
+
+        .logo-img:hover {
+            transform: scale(1.08) rotate(-5deg);
+        }
+
+        .logo-text {
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .logo-sub {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-actions {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+        }
+
+        /* ============================================================
+           BUTTONS
+           ============================================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            backdrop-filter: blur(16px);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .btn:hover::before { opacity: 1; }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            border-color: rgba(255,255,255,0.15);
+        }
+
+        .btn:active { transform: translateY(0) scale(0.98); }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7b2ffc, #00d4ff);
+            border: none;
+            color: white;
+            font-weight: 700;
+            box-shadow: 0 4px 20px rgba(123, 47, 252, 0.2);
+        }
+
+        .btn-primary:hover {
+            box-shadow: 0 8px 35px rgba(123, 47, 252, 0.4);
+            transform: translateY(-2px) scale(1.02);
+        }
+
+        .btn-danger {
+            background: rgba(239, 68, 68, 0.15);
+            border-color: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .btn-danger:hover {
+            background: rgba(239, 68, 68, 0.25);
+        }
+
+        .btn-success {
+            background: rgba(52, 211, 153, 0.15);
+            border-color: rgba(52, 211, 153, 0.2);
+            color: var(--success);
+        }
+
+        .btn-success:hover {
+            background: rgba(52, 211, 153, 0.25);
+        }
+
+        .btn-sm {
+            padding: 6px 14px;
+            font-size: 12px;
+            border-radius: 10px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border-radius: 12px;
+        }
+
+        /* ============================================================
+           CARDS
+           ============================================================ */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+            gap: 24px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .project-card {
+            padding: 0;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.4s;
+            cursor: pointer;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .project-card:hover {
+            transform: translateY(-4px) scale(1.01);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.4), inset 0 1px 0 rgba(255,255,255,0.15);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.05s; }
+        .project-card:nth-child(2) { animation-delay: 0.1s; }
+        .project-card:nth-child(3) { animation-delay: 0.15s; }
+        .project-card:nth-child(4) { animation-delay: 0.2s; }
+
+        .card-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 40px 40px 0 0;
+            display: block;
+        }
+
+        .card-image-placeholder {
+            width: 100%;
+            height: 200px;
+            border-radius: 40px 40px 0 0;
+            background: linear-gradient(135deg, rgba(123,47,252,0.1), rgba(34,211,238,0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            color: rgba(255,255,255,0.1);
+        }
+
+        .card-body {
+            padding: 20px 24px 24px;
+        }
+
+        .card-title {
+            font-size: 18px;
+            font-weight: 800;
+            margin-bottom: 6px;
+            letter-spacing: -0.3px;
+        }
+
+        .card-desc {
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            line-height: 1.5;
+            margin-bottom: 16px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 6px;
+            box-shadow: 0 0 8px currentColor;
+        }
+
+        .status-active { color: var(--success); background: var(--success); }
+        .status-stopped { color: var(--danger); background: var(--danger); }
+
+        .status-text {
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .card-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            opacity: 0;
+            transition: opacity 0.35s ease;
+            border-radius: 40px;
+            z-index: 10;
+        }
+
+        .project-card:hover .card-overlay {
+            opacity: 1;
+        }
+
+        /* ============================================================
+           ADMIN PANEL
+           ============================================================ */
+        .admin-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .admin-stats {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-card {
+            flex: 1;
+            min-width: 180px;
+            padding: 24px;
+            text-align: center;
+            animation: fadeInUp 0.6s ease both;
+        }
+
+        .stat-card:nth-child(1) { animation-delay: 0.05s; }
+        .stat-card:nth-child(2) { animation-delay: 0.1s; }
+        .stat-card:nth-child(3) { animation-delay: 0.15s; }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 900;
+            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 4px;
+        }
+
+        .upload-section {
+            margin-bottom: 40px;
+        }
+
+        .section-title {
+            font-size: 20px;
+            font-weight: 800;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .drop-zone {
+            border: 2px dashed rgba(255,255,255,0.12);
+            border-radius: 20px;
+            padding: 48px 24px;
+            text-align: center;
+            transition: all 0.3s;
+            cursor: pointer;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .drop-zone:hover, .drop-zone.dragover {
+            border-color: #a78bfa;
+            background: rgba(123, 47, 252, 0.05);
+        }
+
+        .drop-zone-icon {
+            font-size: 48px;
+            margin-bottom: 12px;
+            opacity: 0.5;
+        }
+
+        .drop-zone-text {
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .drop-zone-hint {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 16px;
+            margin-top: 24px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-input, .form-textarea, .form-select {
+            padding: 12px 16px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(0,0,0,0.2);
+            backdrop-filter: blur(8px);
+            color: var(--text-primary);
+            font-family: inherit;
+            font-weight: 600;
+            font-size: 14px;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .form-input:focus, .form-textarea:focus, .form-select:focus {
+            border-color: #a78bfa;
+            box-shadow: 0 0 0 3px rgba(123, 47, 252, 0.1);
+            background: rgba(0,0,0,0.3);
+        }
+
+        .form-textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .form-select option {
+            background: #0f172a;
+            color: var(--text-primary);
+        }
+
+        .progress-container {
+            margin-top: 20px;
+            display: none;
+        }
+
+        .progress-bar {
+            height: 6px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(135deg, #7b2ffc, #00d4ff);
+            border-radius: 3px;
+            transition: width 0.3s ease;
+            width: 0%;
+        }
+
+        .progress-text {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-top: 8px;
+            text-align: center;
+        }
+
+        /* ============================================================
+           PROJECT LIST
+           ============================================================ */
+        .project-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .project-row {
+            padding: 20px 24px;
+            display: grid;
+            grid-template-columns: 60px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            animation: fadeInUp 0.5s ease both;
+        }
+
+        .project-row:nth-child(1) { animation-delay: 0.05s; }
+        .project-row:nth-child(2) { animation-delay: 0.1s; }
+        .project-row:nth-child(3) { animation-delay: 0.15s; }
+
+        .row-thumb {
+            width: 56px;
+            height: 56px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 1px solid rgba(255,255,255,0.08);
+        }
+
+        .row-info {
+            min-width: 0;
+        }
+
+        .row-title {
+            font-size: 16px;
+            font-weight: 800;
+            margin-bottom: 4px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .row-meta {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--text-muted);
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .row-actions {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        /* ============================================================
+           MODAL
+           ============================================================ */
+        .modal-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+            padding: 24px;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .modal {
+            max-width: 520px;
+            width: 100%;
+            max-height: 85vh;
+            overflow-y: auto;
+            padding: 32px;
+        }
+
+        .modal::-webkit-scrollbar {
+            width: 4px;
+        }
+        .modal::-webkit-scrollbar-thumb {
+            background: rgba(167, 139, 250, 0.3);
+            border-radius: 10px;
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 24px;
+        }
+
+        .modal-title {
+            font-size: 22px;
+            font-weight: 900;
+        }
+
+        .modal-close {
+            width: 36px;
+            height: 36px;
+            border-radius: 12px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            color: var(--text-primary);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            font-weight: 700;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background: rgba(239, 68, 68, 0.2);
+            border-color: var(--danger);
+        }
+
+        /* ============================================================
+           LOGIN SCREEN
+           ============================================================ */
+        .login-screen {
+            position: fixed;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+
+        .login-card {
+            max-width: 400px;
+            width: 90%;
+            padding: 48px 36px;
+            text-align: center;
+        }
+
+        .login-logo-wrapper {
+            position: relative;
+            display: inline-block;
+            margin: 0 auto 24px;
+        }
+
+        .login-logo-ring {
+            position: absolute;
+            inset: -4px;
+            border-radius: 50%;
+            background: conic-gradient(from 0deg, #7b2ffc, #00d4ff, #ec4899, #7b2ffc);
+            animation: spinRing 4s linear infinite;
+            padding: 2px;
+        }
+
+        .login-logo {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            position: relative;
+            border: 3px solid rgba(255,255,255,0.1);
+            background: #0a0e1a;
+            box-shadow: 0 8px 40px rgba(123, 47, 252, 0.3);
+        }
+
+        .login-title {
+            font-size: 26px;
+            font-weight: 900;
+            margin-bottom: 8px;
+            background: linear-gradient(135deg, #a78bfa, #22d3ee);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .login-subtitle {
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-muted);
+            margin-bottom: 32px;
+        }
+
+        .login-input {
+            width: 100%;
+            margin-bottom: 16px;
+        }
+
+        .login-error {
+            color: var(--danger);
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: 12px;
+            min-height: 20px;
+        }
+
+        /* ============================================================
+           LOGS
+           ============================================================ */
+        .logs-container {
+            background: rgba(0,0,0,0.5);
+            border-radius: 16px;
+            padding: 20px;
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: 12px;
+            font-weight: 600;
+            line-height: 1.6;
+            color: #a5b4fc;
+            max-height: 400px;
+            overflow-y: auto;
+            white-space: pre-wrap;
+            word-break: break-all;
+        }
+
+        .logs-container::-webkit-scrollbar {
+            width: 6px;
+        }
+        .logs-container::-webkit-scrollbar-thumb {
+            background: rgba(167, 139, 250, 0.3);
+            border-radius: 3px;
+        }
+
+        /* ============================================================
+           TOAST
+           ============================================================ */
+        .toast-container {
+            position: fixed;
+            top: 24px;
+            right: 24px;
+            z-index: 3000;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .toast {
+            padding: 14px 24px;
+            border-radius: 16px;
+            font-size: 13px;
+            font-weight: 700;
+            animation: toastIn 0.5s cubic-bezier(0.34, 1.2, 0.64, 1);
+            max-width: 360px;
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        }
+
+        @keyframes toastIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        .toast-success { border-color: rgba(52, 211, 153, 0.3); color: var(--success); }
+        .toast-error { border-color: rgba(239, 68, 68, 0.3); color: var(--danger); }
+        .toast-info { border-color: rgba(96, 165, 250, 0.3); color: var(--blue-dark); }
+
+        /* ============================================================
+           EMPTY STATE
+           ============================================================ */
+        .empty-state {
+            text-align: center;
+            padding: 80px 24px;
+            color: var(--text-muted);
+        }
+
+        .empty-state-icon {
+            font-size: 64px;
+            margin-bottom: 16px;
+            opacity: 0.3;
+        }
+
+        .empty-state-title {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--text-secondary);
+            margin-bottom: 8px;
+        }
+
+        .empty-state p {
+            font-weight: 600;
+        }
+
+        /* ============================================================
+           RESPONSIVE
+           ============================================================ */
+        @media (max-width: 768px) {
+            .card-grid { grid-template-columns: 1fr; }
+            .project-row { grid-template-columns: 1fr; gap: 12px; }
+            .row-actions { width: 100%; }
+            .admin-stats { flex-direction: column; }
+            .app-header { flex-direction: column; gap: 16px; text-align: center; border-radius: 24px; padding: 16px 20px; }
+            .nav-actions { flex-wrap: wrap; justify-content: center; }
+            .login-card { padding: 32px 24px; }
+        }
+
+        @media (max-width: 480px) {
+            .stat-card { min-width: 100%; }
+            .form-grid { grid-template-columns: 1fr; }
+            .card-grid { grid-template-columns: 1fr; }
+        }
+
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.08); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(255,255,255,0.15); }
+    </style>
+</head>
+<body>
+    <!-- ============================================================
+    ANIMATED BACKGROUND (matching login)
+    ============================================================ -->
+    <div class="bg-container">
+        <div class="bg-image" id="bgImage"></div>
+        <div class="bg-overlay"></div>
+        <div class="bg-grid"></div>
+        <div class="blob a"></div>
+        <div class="blob b"></div>
+        <div class="blob c"></div>
+        <div class="blob d"></div>
+    </div>
+    <div class="noise"></div>
+
+    <div class="toast-container" id="toastContainer"></div>
+
+    <!-- ============================================================
+    LOGIN SCREEN
+    ============================================================ -->
+    <div class="login-screen" id="loginScreen" style="display:none;">
+        <div class="login-card liquid-glass liquid-glass-strong">
+            <div class="login-logo-wrapper">
+                <div class="login-logo-ring"></div>
+                <img src="https://i.ibb.co.com/gBfhXFN/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-1.jpg" alt="EXUCODER" class="login-logo">
+            </div>
+            <div class="login-title">𝐄𝐗𝐔𝐂𝐎𝐃𝐄𝐑</div>
+            <div class="login-subtitle">𝐀𝐝𝐦𝐢𝐧 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧</div>
+            <input type="password" class="form-input login-input" id="loginPassword" placeholder="Enter admin password">
+            <button class="btn btn-primary" style="width:100%;" onclick="doLogin()">𝐒𝐢𝐠𝐧 𝐈𝐧</button>
+            <div class="login-error" id="loginError"></div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    MAIN APP
+    ============================================================ -->
+    <div id="app">
+        <header class="app-header" id="appHeader">
+            <div class="logo">
+                <div class="logo-wrapper">
+                    <div class="logo-ring"></div>
+                    <img src="https://i.ibb.co.com/gBfhXFN/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-1.jpg" alt="Logo" class="logo-img">
+                </div>
+                <div>
+                    <div class="logo-text">𝐄𝐗𝐔𝐂𝐎𝐃𝐄𝐑</div>
+                    <div class="logo-sub" id="pageSubtitle">𝐇𝐨𝐬𝐭𝐢𝐧𝐠 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦</div>
+                </div>
+            </div>
+            <!-- Admin button removed – admin is only accessible via #/9x -->
+            <div class="nav-actions">
+                <!-- Gallery button to return from admin view (hidden by default) -->
+                <button class="btn" id="galleryBtn" onclick="goGallery()" style="display:none;">
+                    <span>🌐</span> 𝐆𝐚𝐥𝐥𝐞𝐫𝐲
+                </button>
+            </div>
+        </header>
+
+        <!-- Gallery View -->
+        <div id="galleryView">
+            <div class="card-grid" id="galleryGrid"></div>
+            <div class="empty-state" id="galleryEmpty" style="display:none;">
+                <div class="empty-state-icon">📦</div>
+                <div class="empty-state-title">𝐍𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐘𝐞𝐭</div>
+                <p>Upload your first Flask project from the admin panel.</p>
+            </div>
+        </div>
+
+        <!-- Admin View -->
+        <div id="adminView" style="display:none;">
+            <div class="admin-container">
+                <div class="admin-stats" id="adminStats">
+                    <div class="stat-card liquid-glass">
+                        <div class="stat-value" id="statTotal">0</div>
+                        <div class="stat-label">𝐓𝐨𝐭𝐚𝐥 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬</div>
+                    </div>
+                    <div class="stat-card liquid-glass">
+                        <div class="stat-value" id="statActive">0</div>
+                        <div class="stat-label">𝐀𝐜𝐭𝐢𝐯𝐞</div>
+                    </div>
+                    <div class="stat-card liquid-glass">
+                        <div class="stat-value" id="statStopped">0</div>
+                        <div class="stat-label">𝐒𝐭𝐨𝐩𝐩𝐞𝐝</div>
+                    </div>
+                </div>
+
+                <div class="upload-section">
+                    <div class="section-title">
+                        <span>📤</span> 𝐔𝐩𝐥𝐨𝐚𝐝 𝐍𝐞𝐰 𝐏𝐫𝐨𝐣𝐞𝐜𝐭
+                    </div>
+                    <div class="liquid-glass" style="padding: 0;">
+                        <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+                            <div class="drop-zone-icon">📁</div>
+                            <div class="drop-zone-text">Drop your ZIP file here or click to browse</div>
+                            <div class="drop-zone-hint">Flask project with main.py, app.py, or run.py</div>
+                            <input type="file" id="fileInput" accept=".zip" style="display:none;" onchange="handleFileSelect(event)">
+                        </div>
+                        <div style="padding: 24px;">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label class="form-label">𝐔𝐑𝐋 𝐏𝐚𝐭𝐡 (𝐒𝐥𝐮𝐠)</label>
+                                    <input type="text" class="form-input" id="upSlug" placeholder="e.g., my-api">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐓𝐢𝐭𝐥𝐞</label>
+                                    <input type="text" class="form-input" id="upTitle" placeholder="My Awesome API">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐏𝐨𝐫𝐭</label>
+                                    <input type="text" class="form-input" id="upPort" placeholder="auto" value="auto">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐄𝐧𝐭𝐫𝐲 𝐅𝐢𝐥𝐞</label>
+                                    <select class="form-select" id="upEntry">
+                                        <option value="main.py">main.py</option>
+                                        <option value="app.py">app.py</option>
+                                        <option value="run.py">run.py</option>
+                                        <option value="index.py">index.py</option>
+                                        <option value="server.py">server.py</option>
+                                    </select>
+                                </div>
+                                <div class="form-group" style="grid-column: 1 / -1;">
+                                    <label class="form-label">𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧</label>
+                                    <textarea class="form-textarea" id="upDesc" placeholder="Brief description of your project..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐒𝐜𝐫𝐞𝐞𝐧𝐬𝐡𝐨𝐭 𝐔𝐑𝐋</label>
+                                    <input type="text" class="form-input" id="upScreenshot" placeholder="https://i.ibb.co/...">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐄𝐱𝐭𝐞𝐫𝐧𝐚𝐥 𝐔𝐑𝐋</label>
+                                    <input type="text" class="form-input" id="upExternal" placeholder="https://github.com/...">
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">𝐒𝐨𝐮𝐫𝐜𝐞 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐔𝐑𝐋</label>
+                                    <input type="text" class="form-input" id="upSource" placeholder="Telegram bot link or direct ZIP">
+                                </div>
+                            </div>
+                            <div class="progress-container" id="progressContainer">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" id="progressFill"></div>
+                                </div>
+                                <div class="progress-text" id="progressText">Uploading...</div>
+                            </div>
+                            <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="uploadProject()">
+                                <span>🚀</span> 𝐃𝐞𝐩𝐥𝐨𝐲 𝐏𝐫𝐨𝐣𝐞𝐜𝐭
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="section-title">
+                    <span>📋</span> 𝐌𝐚𝐧𝐚𝐠𝐞 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬
+                </div>
+                <div class="project-list" id="projectList"></div>
+                <div class="empty-state" id="adminEmpty" style="display:none;">
+                    <div class="empty-state-icon">📂</div>
+                    <div class="empty-state-title">𝐍𝐨 𝐏𝐫𝐨𝐣𝐞𝐜𝐭𝐬</div>
+                    <p>Upload your first project above.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================================
+    MODALS
+    ============================================================ -->
+    <div class="modal-overlay" id="editModal">
+        <div class="modal liquid-glass liquid-glass-strong">
+            <div class="modal-header">
+                <div class="modal-title">𝐄𝐝𝐢𝐭 𝐏𝐫𝐨𝐣𝐞𝐜𝐭</div>
+                <button class="modal-close" onclick="closeEditModal()">×</button>
+            </div>
+            <div class="form-grid">
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label">𝐓𝐢𝐭𝐥𝐞</label>
+                    <input type="text" class="form-input" id="editTitle">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label">𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧</label>
+                    <textarea class="form-textarea" id="editDesc"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">𝐒𝐜𝐫𝐞𝐞𝐧𝐬𝐡𝐨𝐭 𝐔𝐑𝐋</label>
+                    <input type="text" class="form-input" id="editScreenshot">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">𝐄𝐱𝐭𝐞𝐫𝐧𝐚𝐥 𝐔𝐑𝐋</label>
+                    <input type="text" class="form-input" id="editExternal">
+                </div>
+                <div class="form-group" style="grid-column: 1 / -1;">
+                    <label class="form-label">𝐒𝐨𝐮𝐫𝐜𝐞 𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐔𝐑𝐋</label>
+                    <input type="text" class="form-input" id="editSource">
+                </div>
+            </div>
+            <button class="btn btn-primary" style="margin-top: 20px; width: 100%;" onclick="saveEdit()">
+                <span>💾</span> 𝐒𝐚𝐯𝐞 𝐂𝐡𝐚𝐧𝐠𝐞𝐬
+            </button>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="logsModal">
+        <div class="modal liquid-glass liquid-glass-strong" style="max-width: 800px;">
+            <div class="modal-header">
+                <div class="modal-title">𝐏𝐫𝐨𝐜𝐞𝐬𝐬 𝐋𝐨𝐠𝐬</div>
+                <button class="modal-close" onclick="closeLogsModal()">×</button>
+            </div>
+            <div class="logs-container" id="logsContent">Loading logs...</div>
+            <button class="btn" style="margin-top: 16px; width: 100%;" onclick="refreshLogs()">
+                <span>🔄</span> 𝐑𝐞𝐟𝐫𝐞𝐬𝐡
+            </button>
+        </div>
+    </div>
+
+    <script>
+        // =====================================================================
+        // BACKGROUND IMAGE HANDLER
+        // =====================================================================
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgImage = document.getElementById('bgImage');
+            const img = new Image();
+            img.onload = function() {
+                bgImage.style.backgroundImage = "url('https://i.ibb.co.com/k2ZL25g3/background.jpg')";
+                bgImage.classList.remove('error');
+            };
+            img.onerror = function() {
+                bgImage.classList.add('error');
+                console.log('Background image failed to load, using fallback gradient.');
+            };
+            img.src = 'https://i.ibb.co.com/k2ZL25g3/background.jpg';
+        });
+
+        // =====================================================================
+        // AUTH
+        // =====================================================================
+        let authToken = localStorage.getItem('apih9s5_token') || '';
+        let currentView = 'gallery';
+        let projects = [];
+        let editingSlug = null;
+        let logsSlug = null;
+        let selectedFile = null;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadGallery();
+            setupDragDrop();
+            setupHashRouting();
+        });
+
+        function setupHashRouting() {
+            function handleHash() {
+                const hash = window.location.hash;
+                if (hash === '#/9x') {
+                    if (!authToken) { showLogin(); }
+                    else { goAdmin(); }
+                } else { goGallery(); }
+            }
+            window.addEventListener('hashchange', handleHash);
+            handleHash();
+        }
+
+        function checkAuth() {
+            if (authToken) {
+                document.getElementById('loginScreen').style.display = 'none';
+            }
+        }
+
+        function showLogin() {
+            document.getElementById('loginScreen').style.display = 'flex';
+            document.getElementById('loginPassword').focus();
+        }
+
+        async function doLogin() {
+            const password = document.getElementById('loginPassword').value;
+            const errorEl = document.getElementById('loginError');
+            try {
+                const res = await fetch('/api/auth', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ password })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    authToken = data.token;
+                    localStorage.setItem('apih9s5_token', authToken);
+                    document.getElementById('loginScreen').style.display = 'none';
+                    document.getElementById('loginPassword').value = '';
+                    errorEl.textContent = '';
+                    goAdmin();
+                    toast('Welcome back, Admin', 'success');
+                } else {
+                    errorEl.textContent = 'Invalid password';
+                }
+            } catch (e) {
+                errorEl.textContent = 'Connection failed';
+            }
+        }
+
+        document.getElementById('loginPassword').addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') doLogin();
+        });
+
+        function goGallery() {
+            currentView = 'gallery';
+            window.location.hash = '';
+            document.getElementById('galleryView').style.display = 'block';
+            document.getElementById('adminView').style.display = 'none';
+            document.getElementById('galleryBtn').style.display = 'none';
+            document.getElementById('pageSubtitle').textContent = '𝐇𝐨𝐬𝐭𝐢𝐧𝐠 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦';
+            loadGallery();
+        }
+
+        function goAdmin() {
+            if (!authToken) { showLogin(); return; }
+            currentView = 'admin';
+            window.location.hash = '#/9x';
+            document.getElementById('galleryView').style.display = 'none';
+            document.getElementById('adminView').style.display = 'block';
+            document.getElementById('galleryBtn').style.display = 'inline-flex';
+            document.getElementById('pageSubtitle').textContent = '𝐀𝐝𝐦𝐢𝐧 𝐏𝐚𝐧𝐞𝐥';
+            loadAdminProjects();
+        }
+
+        // =====================================================================
+        // GALLERY
+        // =====================================================================
+        async function loadGallery() {
+            try {
+                const res = await fetch('/api/projects/public');
+                const data = await res.json();
+                renderGallery(data);
+            } catch (e) {
+                toast('Failed to load gallery', 'error');
+            }
+        }
+
+        function renderGallery(items) {
+            const grid = document.getElementById('galleryGrid');
+            const empty = document.getElementById('galleryEmpty');
+            if (!items || items.length === 0) {
+                grid.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+            empty.style.display = 'none';
+            grid.innerHTML = items.map((p, i) => `
+                <div class="project-card liquid-glass">
+                    ${p.screenshot 
+                        ? `<img src="${escapeHtml(p.screenshot)}" class="card-image" alt="${escapeHtml(p.title)}" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';">`
+                        : ''}
+                    <div class="card-image-placeholder" style="display:${p.screenshot ? 'none' : 'flex'}">🚀</div>
+                    <div class="card-body">
+                        <div class="card-title">${escapeHtml(p.title)}</div>
+                        <div class="card-desc">${escapeHtml(p.description || 'No description')}</div>
+                        <div class="card-meta">
+                            <span class="status-text">
+                                <span class="status-dot status-active"></span> Active
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-overlay">
+                        <a href="/${p.slug}/" target="_blank" class="btn btn-primary">
+                            <span>🌐</span> Visit
+                        </a>
+                        ${p.source_download 
+                            ? `<a href="${escapeHtml(p.source_download)}" target="_blank" class="btn">
+                                <span>📥</span> Source
+                               </a>`
+                            : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        // =====================================================================
+        // ADMIN
+        // =====================================================================
+        async function loadAdminProjects() {
+            try {
+                const res = await fetch('/api/projects', {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                projects = await res.json();
+                renderAdminProjects();
+                updateStats();
+            } catch (e) {
+                toast('Failed to load projects', 'error');
+            }
+        }
+
+        function renderAdminProjects() {
+            const list = document.getElementById('projectList');
+            const empty = document.getElementById('adminEmpty');
+            if (!projects || projects.length === 0) {
+                list.innerHTML = '';
+                empty.style.display = 'block';
+                return;
+            }
+            empty.style.display = 'none';
+            list.innerHTML = projects.map((p, i) => {
+                const isActive = p.status === 'active';
+                return `
+                <div class="project-row liquid-glass">
+                    <img src="${p.screenshot || 'https://i.ibb.co.com/gBfhXFN/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-1.jpg'}" class="row-thumb" alt="" onerror="this.src='https://i.ibb.co.com/gBfhXFN/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-1.jpg'">
+                    <div class="row-info">
+                        <div class="row-title">${escapeHtml(p.title)}</div>
+                        <div class="row-meta">
+                            <span>🔌 Port ${p.port || 'N/A'}</span>
+                            <span>📄 ${escapeHtml(p.entry_file || 'main.py')}</span>
+                            <span class="status-text">
+                                <span class="status-dot ${isActive ? 'status-active' : 'status-stopped'}"></span>
+                                ${isActive ? 'Active' : 'Stopped'}
+                            </span>
+                        </div>
+                    </div>
+                    <div class="row-actions">
+                        ${isActive 
+                            ? `<button class="btn btn-sm btn-danger" onclick="stopProject('${p.slug}')">⏹ Stop</button>`
+                            : `<button class="btn btn-sm btn-success" onclick="startProject('${p.slug}')">▶ Start</button>`
+                        }
+                        <button class="btn btn-sm" onclick="restartProject('${p.slug}')">🔄</button>
+                        <button class="btn btn-sm" onclick="viewLogs('${p.slug}')">📋</button>
+                        <button class="btn btn-sm" onclick="openEdit('${p.slug}')">✏️</button>
+                        <a href="/api/download/${p.slug}?token=${authToken}" class="btn btn-sm" title="Download">📥</a>
+                        <button class="btn btn-sm btn-danger" onclick="deleteProject('${p.slug}')">🗑</button>
+                    </div>
+                </div>
+                `;
+            }).join('');
+        }
+
+        function updateStats() {
+            const total = projects.length;
+            const active = projects.filter(p => p.status === 'active').length;
+            const stopped = total - active;
+            animateNumber('statTotal', total);
+            animateNumber('statActive', active);
+            animateNumber('statStopped', stopped);
+        }
+
+        function animateNumber(id, target) {
+            const el = document.getElementById(id);
+            const start = parseInt(el.textContent) || 0;
+            const duration = 600;
+            const startTime = performance.now();
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(start + (target - start) * ease);
+                if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+        }
+
+        // =====================================================================
+        // PROJECT ACTIONS
+        // =====================================================================
+        async function startProject(slug) {
+            try {
+                const res = await fetch('/api/start', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+                    body: JSON.stringify({ slug })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    toast(`Started ${slug} on port ${data.port}`, 'success');
+                    loadAdminProjects();
+                } else {
+                    toast(data.error || 'Failed to start', 'error');
+                }
+            } catch (e) { toast('Connection error', 'error'); }
+        }
+
+        async function stopProject(slug) {
+            try {
+                const res = await fetch('/api/stop', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+                    body: JSON.stringify({ slug })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    toast(`Stopped ${slug}`, 'info');
+                    loadAdminProjects();
+                } else {
+                    toast(data.error || 'Failed to stop', 'error');
+                }
+            } catch (e) { toast('Connection error', 'error'); }
+        }
+
+        async function restartProject(slug) {
+            try {
+                const res = await fetch('/api/restart', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+                    body: JSON.stringify({ slug })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    toast(`Restarted ${slug} on port ${data.port}`, 'success');
+                    loadAdminProjects();
+                } else {
+                    toast(data.error || 'Failed to restart', 'error');
+                }
+            } catch (e) { toast('Connection error', 'error'); }
+        }
+
+        async function deleteProject(slug) {
+            if (!confirm(`Delete project "${slug}"? This cannot be undone.`)) return;
+            try {
+                const res = await fetch(`/api/projects/${slug}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    toast(`Deleted ${slug}`, 'info');
+                    loadAdminProjects();
+                } else {
+                    toast(data.error || 'Failed to delete', 'error');
+                }
+            } catch (e) { toast('Connection error', 'error'); }
+        }
+
+        // =====================================================================
+        // UPLOAD
+        // =====================================================================
+        function setupDragDrop() {
+            const dz = document.getElementById('dropZone');
+            ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                dz.addEventListener(eventName, preventDefaults, false);
+            });
+            function preventDefaults(e) { e.preventDefault(); e.stopPropagation(); }
+            ['dragenter', 'dragover'].forEach(eventName => {
+                dz.addEventListener(eventName, () => dz.classList.add('dragover'), false);
+            });
+            ['dragleave', 'drop'].forEach(eventName => {
+                dz.addEventListener(eventName, () => dz.classList.remove('dragover'), false);
+            });
+            dz.addEventListener('drop', (e) => {
+                const files = e.dataTransfer.files;
+                if (files.length) handleFile(files[0]);
+            }, false);
+        }
+
+        function handleFileSelect(e) {
+            if (e.target.files.length) handleFile(e.target.files[0]);
+        }
+
+        function handleFile(file) {
+            if (!file.name.endsWith('.zip')) {
+                toast('Please upload a ZIP file', 'error');
+                return;
+            }
+            selectedFile = file;
+            document.querySelector('.drop-zone-text').textContent = file.name;
+            document.querySelector('.drop-zone-hint').textContent = `${(file.size / 1024 / 1024).toFixed(2)} MB`;
+            toast('File selected: ' + file.name, 'info');
+        }
+
+        async function uploadProject() {
+            if (!selectedFile) { toast('Please select a ZIP file', 'error'); return; }
+            const slug = document.getElementById('upSlug').value.trim().toLowerCase();
+            const title = document.getElementById('upTitle').value.trim();
+            const port = document.getElementById('upPort').value.trim();
+            const entry = document.getElementById('upEntry').value;
+            const desc = document.getElementById('upDesc').value.trim();
+            const screenshot = document.getElementById('upScreenshot').value.trim();
+            const external = document.getElementById('upExternal').value.trim();
+            const source = document.getElementById('upSource').value.trim();
+            if (!slug || !title) { toast('Slug and Title are required', 'error'); return; }
+
+            const formData = new FormData();
+            formData.append('zipfile', selectedFile);
+            formData.append('slug', slug);
+            formData.append('title', title);
+            formData.append('port', port);
+            formData.append('entry_file', entry);
+            formData.append('description', desc);
+            formData.append('screenshot', screenshot);
+            formData.append('external_url', external);
+            formData.append('source_download', source);
+
+            const progress = document.getElementById('progressContainer');
+            const fill = document.getElementById('progressFill');
+            const text = document.getElementById('progressText');
+            progress.style.display = 'block';
+            fill.style.width = '30%';
+            text.textContent = 'Uploading...';
+
+            try {
+                const res = await fetch('/api/upload', {
+                    method: 'POST',
+                    headers: { 'Authorization': `Bearer ${authToken}` },
+                    body: formData
+                });
+                fill.style.width = '70%';
+                const data = await res.json();
+                if (data.success) {
+                    fill.style.width = '100%';
+                    text.textContent = 'Deployed successfully!';
+                    toast(`Deployed ${slug} on port ${data.port}`, 'success');
+                    selectedFile = null;
+                    document.getElementById('fileInput').value = '';
+                    document.querySelector('.drop-zone-text').textContent = 'Drop your ZIP file here or click to browse';
+                    document.querySelector('.drop-zone-hint').textContent = 'Flask project with main.py, app.py, or run.py';
+                    document.getElementById('upSlug').value = '';
+                    document.getElementById('upTitle').value = '';
+                    document.getElementById('upDesc').value = '';
+                    document.getElementById('upScreenshot').value = '';
+                    document.getElementById('upExternal').value = '';
+                    document.getElementById('upSource').value = '';
+                    setTimeout(() => { progress.style.display = 'none'; fill.style.width = '0%'; }, 2000);
+                    loadAdminProjects();
+                } else {
+                    fill.style.width = '0%';
+                    text.textContent = 'Upload failed';
+                    toast(data.error || 'Upload failed', 'error');
+                }
+            } catch (e) {
+                fill.style.width = '0%';
+                text.textContent = 'Upload failed';
+                toast('Connection error during upload', 'error');
+            }
+        }
+
+        // =====================================================================
+        // EDIT
+        // =====================================================================
+        function openEdit(slug) {
+            const p = projects.find(x => x.slug === slug);
+            if (!p) return;
+            editingSlug = slug;
+            document.getElementById('editTitle').value = p.title || '';
+            document.getElementById('editDesc').value = p.description || '';
+            document.getElementById('editScreenshot').value = p.screenshot || '';
+            document.getElementById('editExternal').value = p.external_url || '';
+            document.getElementById('editSource').value = p.source_download || '';
+            document.getElementById('editModal').classList.add('active');
+        }
+
+        function closeEditModal() {
+            document.getElementById('editModal').classList.remove('active');
+            editingSlug = null;
+        }
+
+        async function saveEdit() {
+            if (!editingSlug) return;
+            try {
+                const res = await fetch(`/api/projects/${editingSlug}/edit`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Authorization': `Bearer ${authToken}` },
+                    body: JSON.stringify({
+                        title: document.getElementById('editTitle').value,
+                        description: document.getElementById('editDesc').value,
+                        screenshot: document.getElementById('editScreenshot').value,
+                        external_url: document.getElementById('editExternal').value,
+                        source_download: document.getElementById('editSource').value
+                    })
+                });
+                const data = await res.json();
+                if (data.success) {
+                    toast('Project updated', 'success');
+                    closeEditModal();
+                    loadAdminProjects();
+                } else {
+                    toast(data.error || 'Update failed', 'error');
+                }
+            } catch (e) { toast('Connection error', 'error'); }
+        }
+
+        // =====================================================================
+        // LOGS
+        // =====================================================================
+        async function viewLogs(slug) {
+            logsSlug = slug;
+            document.getElementById('logsModal').classList.add('active');
+            await refreshLogs();
+        }
+
+        async function refreshLogs() {
+            if (!logsSlug) return;
+            try {
+                const res = await fetch(`/api/logs/${logsSlug}`, {
+                    headers: { 'Authorization': `Bearer ${authToken}` }
+                });
+                const data = await res.json();
+                document.getElementById('logsContent').textContent = data.logs || 'No logs available';
+            } catch (e) {
+                document.getElementById('logsContent').textContent = 'Failed to load logs';
+            }
+        }
+
+        function closeLogsModal() {
+            document.getElementById('logsModal').classList.remove('active');
+            logsSlug = null;
+        }
+
+        // =====================================================================
+        // UTILITY
+        // =====================================================================
+        function toast(message, type = 'info') {
+            const container = document.getElementById('toastContainer');
+            const el = document.createElement('div');
+            el.className = `toast toast-${type}`;
+            el.textContent = message;
+            container.appendChild(el);
+            setTimeout(() => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateX(100%)';
+                setTimeout(() => el.remove(), 300);
+            }, 3500);
+        }
+
+        function escapeHtml(text) {
+            if (!text) return '';
+            const div = document.createElement('div');
+            div.textContent = text;
+            return div.innerHTML;
+        }
+
+        document.querySelectorAll('.modal-overlay').forEach(overlay => {
+            overlay.addEventListener('click', (e) => {
+                if (e.target === overlay) {
+                    overlay.classList.remove('active');
+                }
+            });
+        });
+
+        // Expose functions globally
+        window.goGallery = goGallery;
+        window.goAdmin = goAdmin;
+        window.doLogin = doLogin;
+        window.startProject = startProject;
+        window.stopProject = stopProject;
+        window.restartProject = restartProject;
+        window.deleteProject = deleteProject;
+        window.openEdit = openEdit;
+        window.closeEditModal = closeEditModal;
+        window.saveEdit = saveEdit;
+        window.viewLogs = viewLogs;
+        window.refreshLogs = refreshLogs;
+        window.closeLogsModal = closeLogsModal;
+        window.uploadProject = uploadProject;
+        window.handleFileSelect = handleFileSelect;
+        window.toast = toast;
+    </script>
+</body>
+</html>
