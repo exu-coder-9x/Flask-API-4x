@@ -1,10 +1,12 @@
-<p align="center">
-  <img src="https://i.ibb.co.com/0y6GPSZL/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-2.jpg" alt="APIH9S5 Logo" width="180"/>
+# **𝐀𝐏𝐈𝐇𝟗𝐒𝟓**
+
+<p align="center">  
+  <img src="https://i.ibb.co.com/0y6GPSZL/mrhimcho-fyp-pfp-virelvideo-unfrezzmyaccount-JPEG-2.jpg" alt="APIH9S5 Logo" width="180"/>  
 </p>
 
-<h1 align="center"><b>APIH9S5</b></h1>
-<p align="center"><b>Flask Application Hosting & Deployment Platform</b></p>
-<p align="center"><b>Liquid Glass UI · Secure Admin Panel · ZIP Deployment · Process Management · Reverse Proxy · Public Project Gallery</b></p>
+<h1 align="center"><b>𝐀𝐏𝐈𝐇𝟗𝐒𝟓</b></h1>
+<p align="center"><b>𝐅𝐥𝐚𝐬𝐤 𝐀𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐇𝐨𝐬𝐭𝐢𝐧𝐠 & 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭 𝐏𝐥𝐚𝐭𝐟𝐨𝐫𝐦</b></p>
+<p align="center"><b>𝐋𝐢𝐪𝐮𝐢𝐝 𝐆𝐥𝐚𝐬𝐬 𝐔𝐈 · 𝐒𝐞𝐜𝐮𝐫𝐞 𝐀𝐝𝐦𝐢𝐧 𝐏𝐚𝐧𝐞𝐥 · 𝐙𝐈𝐏 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭 · 𝐏𝐫𝐨𝐜𝐞𝐬𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 · 𝐑𝐞𝐯𝐞𝐫𝐬𝐞 𝐏𝐫𝐨𝐱𝐲 · 𝐏𝐮𝐛𝐥𝐢𝐜 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐆𝐚𝐥𝐥𝐞𝐫𝐲</b></p>
 
 <p align="center">
   <img src="https://img.shields.io/badge/Python-3.10%2B-3776AB?style=for-the-badge&logo=python&logoColor=white"/>
@@ -13,36 +15,36 @@
   <img src="https://img.shields.io/badge/Proxy-Reverse%20Proxy-16A34A?style=for-the-badge"/>
 </p>
 
-<p align="center"><b>A lightweight self-hosted platform for uploading, deploying, managing, and exposing independent Flask applications through project slugs.</b></p>
+<p align="center"><b>𝐀 𝐥𝐢𝐠𝐡𝐭𝐰𝐞𝐢𝐠𝐡𝐭 𝐬𝐞𝐥𝐟-𝐡𝐨𝐬𝐭𝐞𝐝 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐟𝐨𝐫 𝐮𝐩𝐥𝐨𝐚𝐝𝐢𝐧𝐠, 𝐝𝐞𝐩𝐥𝐨𝐲𝐢𝐧𝐠, 𝐦𝐚𝐧𝐚𝐠𝐢𝐧𝐠, 𝐚𝐧𝐝 𝐞𝐱𝐩𝐨𝐬𝐢𝐧𝐠 𝐢𝐧𝐝𝐞𝐩𝐞𝐧𝐝𝐞𝐧𝐭 𝐅𝐥𝐚𝐬𝐤 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧𝐬 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐥𝐮𝐠𝐬.</b></p>
 
 ---
 
-## <b>📖 Overview</b>
+## **📖 𝐎𝐯𝐞𝐫𝐯𝐢𝐞𝐰**
 
-<b>APIH9S5</b> is a lightweight Python/Flask application hosting platform built around:
+**𝐀𝐏𝐈𝐇𝟗𝐒𝟓** 𝐢𝐬 𝐚 𝐥𝐢𝐠𝐡𝐭𝐰𝐞𝐢𝐠𝐡𝐭 𝐏𝐲𝐭𝐡𝐨𝐧/𝐅𝐥𝐚𝐬𝐤 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐡𝐨𝐬𝐭𝐢𝐧𝐠 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐛𝐮𝐢𝐥𝐭 𝐚𝐫𝐨𝐮𝐧𝐝:
 
-<b>Upload ZIP → Extract → Install Dependencies → Detect Entry Point → Assign Port → Start Process → Expose Through Slug</b>
+**𝐔𝐩𝐥𝐨𝐚𝐝 𝐙𝐈𝐏 → 𝐄𝐱𝐭𝐫𝐚𝐜𝐭 → 𝐈𝐧𝐬𝐭𝐚𝐥𝐥 𝐃𝐞𝐩𝐞𝐧𝐝𝐞𝐧𝐜𝐢𝐞𝐬 → 𝐃𝐞𝐭𝐞𝐜𝐭 𝐄𝐧𝐭𝐫𝐲 𝐏𝐨𝐢𝐧𝐭 → 𝐀𝐬𝐬𝐢𝐠𝐧 𝐏𝐨𝐫𝐭 → 𝐒𝐭𝐚𝐫𝐭 𝐏𝐫𝐨𝐜𝐞𝐬𝐬 → 𝐄𝐱𝐩𝐨𝐬𝐞 𝐓𝐡𝐫𝐨𝐮𝐠𝐡 𝐒𝐥𝐮𝐠**
 
-<b>The platform uses a JSON + filesystem architecture instead of a traditional database, making it easy to inspect, back up, move, and run on a Linux server, VPS, or Termux.</b>
+**𝐓𝐡𝐞 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐮𝐬𝐞𝐬 𝐚 𝐉𝐒𝐎𝐍 + 𝐟𝐢𝐥𝐞𝐬𝐲𝐬𝐭𝐞𝐦 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞 𝐢𝐧𝐬𝐭𝐞𝐚𝐝 𝐨𝐟 𝐚 𝐭𝐫𝐚𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚𝐛𝐚𝐬𝐞, 𝐦𝐚𝐤𝐢𝐧𝐠 𝐢𝐭 𝐞𝐚𝐬𝐲 𝐭𝐨 𝐢𝐧𝐬𝐩𝐞𝐜𝐭, 𝐛𝐚𝐜𝐤 𝐮𝐩, 𝐦𝐨𝐯𝐞, 𝐚𝐧𝐝 𝐫𝐮𝐧 𝐨𝐧 𝐚 𝐋𝐢𝐧𝐮𝐱 𝐬𝐞𝐫𝐯𝐞𝐫, 𝐕𝐏𝐒, 𝐨𝐫 𝐓𝐞𝐫𝐦𝐮𝐱.**
 
 ---
 
-## <b>✨ Core Features</b>
+## **✨ 𝐂𝐨𝐫𝐞 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬**
 
-| <b>Feature</b> | <b>Description</b> |
+| **𝐅𝐞𝐚𝐭𝐮𝐫𝐞** | **𝐃𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧** |
 |---|---|
-| 📦 <b>ZIP Deployment</b> | <b>Drag-and-drop uploads, ZIP extraction, dependency installation, and source preservation.</b> |
-| 🚀 <b>Automatic Startup</b> | <b>Detects common Python entry files and launches applications as managed subprocesses.</b> |
-| 🔌 <b>Reverse Proxy</b> | <b>Exposes running applications through `/<slug>/...` routing.</b> |
-| 🔐 <b>Admin Authentication</b> | <b>Bearer-token protected management endpoints.</b> |
-| 🧩 <b>Project Lifecycle</b> | <b>Start, stop, restart, edit, inspect logs, and delete projects.</b> |
-| 🌐 <b>Public Gallery</b> | <b>Displays active projects with title, description, screenshot, and external information.</b> |
-| 💾 <b>Zero Database</b> | <b>Project metadata and runtime registry use JSON and the filesystem.</b> |
-| 📱 <b>Termux Friendly</b> | <b>Designed with restricted process inspection environments in mind.</b> |
+| 📦 **𝐙𝐈𝐏 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭** | **𝐃𝐫𝐚𝐠-𝐚𝐧𝐝-𝐝𝐫𝐨𝐩 𝐮𝐩𝐥𝐨𝐚𝐝𝐬, 𝐙𝐈𝐏 𝐞𝐱𝐭𝐫𝐚𝐜𝐭𝐢𝐨𝐧, 𝐝𝐞𝐩𝐞𝐧𝐝𝐞𝐧𝐜𝐲 𝐢𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧, 𝐚𝐧𝐝 𝐬𝐨𝐮𝐫𝐜𝐞 𝐩𝐫𝐞𝐬𝐞𝐫𝐯𝐚𝐭𝐢𝐨𝐧.** |
+| 🚀 **𝐀𝐮𝐭𝐨𝐦𝐚𝐭𝐢𝐜 𝐒𝐭𝐚𝐫𝐭𝐮𝐩** | **𝐃𝐞𝐭𝐞𝐜𝐭𝐬 𝐜𝐨𝐦𝐦𝐨𝐧 𝐏𝐲𝐭𝐡𝐨𝐧 𝐞𝐧𝐭𝐫𝐲 𝐟𝐢𝐥𝐞𝐬 𝐚𝐧𝐝 𝐥𝐚𝐮𝐧𝐜𝐡𝐞𝐬 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧𝐬 𝐚𝐬 𝐦𝐚𝐧𝐚𝐠𝐞𝐝 𝐬𝐮𝐛𝐩𝐫𝐨𝐜𝐞𝐬𝐬𝐞𝐬.** |
+| 🔌 **𝐑𝐞𝐯𝐞𝐫𝐬𝐞 𝐏𝐫𝐨𝐱𝐲** | **𝐄𝐱𝐩𝐨𝐬𝐞𝐬 𝐫𝐮𝐧𝐧𝐢𝐧𝐠 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧𝐬 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 `/<slug>/...` 𝐫𝐨𝐮𝐭𝐢𝐧𝐠.** |
+| 🔐 **𝐀𝐝𝐦𝐢𝐧 𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐢𝐨𝐧** | **𝐁𝐞𝐚𝐫𝐞𝐫-𝐭𝐨𝐤𝐞𝐧 𝐩𝐫𝐨𝐭𝐞𝐜𝐭𝐞𝐝 𝐦𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭 𝐞𝐧𝐝𝐩𝐨𝐢𝐧𝐭𝐬.** |
+| 🧩 **𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐋𝐢𝐟𝐞𝐜𝐲𝐜𝐥𝐞** | **𝐒𝐭𝐚𝐫𝐭, 𝐬𝐭𝐨𝐩, 𝐫𝐞𝐬𝐭𝐚𝐫𝐭, 𝐞𝐝𝐢𝐭, 𝐢𝐧𝐬𝐩𝐞𝐜𝐭 𝐥𝐨𝐠𝐬, 𝐚𝐧𝐝 𝐝𝐞𝐥𝐞𝐭𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬.** |
+| 🌐 **𝐏𝐮𝐛𝐥𝐢𝐜 𝐆𝐚𝐥𝐥𝐞𝐫𝐲** | **𝐃𝐢𝐬𝐩𝐥𝐚𝐲𝐬 𝐚𝐜𝐭𝐢𝐯𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐰𝐢𝐭𝐡 𝐭𝐢𝐭𝐥𝐞, 𝐝𝐞𝐬𝐜𝐫𝐢𝐩𝐭𝐢𝐨𝐧, 𝐬𝐜𝐫𝐞𝐞𝐧𝐬𝐡𝐨𝐭, 𝐚𝐧𝐝 𝐞𝐱𝐭𝐞𝐫𝐧𝐚𝐥 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧.** |
+| 💾 **𝐙𝐞𝐫𝐨 𝐃𝐚𝐭𝐚𝐛𝐚𝐬𝐞** | **𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐦𝐞𝐭𝐚𝐝𝐚𝐭𝐚 𝐚𝐧𝐝 𝐫𝐮𝐧𝐭𝐢𝐦𝐞 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐲 𝐮𝐬𝐞 𝐉𝐒𝐎𝐍 𝐚𝐧𝐝 𝐭𝐡𝐞 𝐟𝐢𝐥𝐞𝐬𝐲𝐬𝐭𝐞𝐦.** |
+| 📱 **𝐓𝐞𝐫𝐦𝐮𝐱 𝐅𝐫𝐢𝐞𝐧𝐝𝐥𝐲** | **𝐃𝐞𝐬𝐢𝐠𝐧𝐞𝐝 𝐰𝐢𝐭𝐡 𝐫𝐞𝐬𝐭𝐫𝐢𝐜𝐭𝐞𝐝 𝐩𝐫𝐨𝐜𝐞𝐬𝐬 𝐢𝐧𝐬𝐩𝐞𝐜𝐭𝐢𝐨𝐧 𝐞𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭𝐬 𝐢𝐧 𝐦𝐢𝐧𝐝.** |
 
 ---
 
-## <b>🏗️ System Architecture</b>
+## **🏗️ 𝐒𝐲𝐬𝐭𝐞𝐦 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞**
 
 ```mermaid
 flowchart TB
@@ -100,7 +102,7 @@ flowchart TB
 
 ---
 
-## <b>🔗 Component Relationships</b>
+## **🔗 𝐂𝐨𝐦𝐩𝐨𝐧𝐞𝐧𝐭 𝐑𝐞𝐥𝐚𝐭𝐢𝐨𝐧𝐬𝐡𝐢𝐩𝐬**
 
 ```mermaid
 architecture-beta
@@ -139,11 +141,11 @@ architecture-beta
     process:R --> L:app3
 ```
 
-<b>GitHub supports Mermaid diagrams in Markdown, making these diagrams version-controlled with the repository.</b>
+**𝐆𝐢𝐭𝐇𝐮𝐛 𝐬𝐮𝐩𝐩𝐨𝐫𝐭𝐬 𝐌𝐞𝐫𝐦𝐚𝐢𝐝 𝐝𝐢𝐚𝐠𝐫𝐚𝐦𝐬 𝐢𝐧 𝐌𝐚𝐫𝐤𝐝𝐨𝐰𝐧, 𝐦𝐚𝐤𝐢𝐧𝐠 𝐭𝐡𝐞𝐬𝐞 𝐝𝐢𝐚𝐠𝐫𝐚𝐦𝐬 𝐯𝐞𝐫𝐬𝐢𝐨𝐧-𝐜𝐨𝐧𝐭𝐫𝐨𝐥𝐥𝐞𝐝 𝐰𝐢𝐭𝐡 𝐭𝐡𝐞 𝐫𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐲.**
 
 ---
 
-## <b>🔄 Deployment Lifecycle</b>
+## **🔄 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭 𝐋𝐢𝐟𝐞𝐜𝐲𝐜𝐥𝐞**
 
 ```mermaid
 sequenceDiagram
@@ -186,7 +188,7 @@ sequenceDiagram
 
 ---
 
-## <b>📦 Supported Project Structure</b>
+## **📦 𝐒𝐮𝐩𝐩𝐨𝐫𝐭𝐞𝐝 𝐏𝐫𝐨𝐣𝐞𝐜𝐭 𝐒𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞**
 
 ```text
 my-project.zip
@@ -197,7 +199,7 @@ my-project.zip
 └── ...
 ```
 
-<b>Common entry files:</b>
+**𝐂𝐨𝐦𝐦𝐨𝐧 𝐞𝐧𝐭𝐫𝐲 𝐟𝐢𝐥𝐞𝐬:**
 
 ```text
 main.py
@@ -207,7 +209,7 @@ index.py
 server.py
 ```
 
-<b>The application can receive its assigned port through the command line or `PORT` environment variable.</b>
+**𝐓𝐡𝐞 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐜𝐚𝐧 𝐫𝐞𝐜𝐞𝐢𝐯𝐞 𝐢𝐭𝐬 𝐚𝐬𝐬𝐢𝐠𝐧𝐞𝐝 𝐩𝐨𝐫𝐭 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐚𝐧𝐝 𝐥𝐢𝐧𝐞 𝐨𝐫 `PORT` 𝐞𝐧𝐯𝐢𝐫𝐨𝐧𝐦𝐞𝐧𝐭 𝐯𝐚𝐫𝐢𝐚𝐛𝐥𝐞.**
 
 ```python
 import os
@@ -232,27 +234,27 @@ if __name__ == "__main__":
 
 ---
 
-## <b>🔀 Reverse Proxy</b>
+## **🔀 𝐑𝐞𝐯𝐞𝐫𝐬𝐞 𝐏𝐫𝐨𝐱𝐲**
 
-<b>Running projects are exposed through their project slug:</b>
+**𝐑𝐮𝐧𝐧𝐢𝐧𝐠 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐚𝐫𝐞 𝐞𝐱𝐩𝐨𝐬𝐞𝐝 𝐭𝐡𝐫𝐨𝐮𝐠𝐡 𝐭𝐡𝐞𝐢𝐫 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐥𝐮𝐠:**
 
 ```text
 http://HOST:8080/<slug>/
 ```
 
-<b>Example:</b>
+**𝐄𝐱𝐚𝐦𝐩𝐥𝐞:**
 
 ```text
 http://127.0.0.1:8080/my-project/
 ```
 
-<b>The proxy forwards GET, POST, PUT, DELETE, PATCH, OPTIONS, HEAD, headers, cookies, request bodies, and query strings.</b>
+**𝐓𝐡𝐞 𝐩𝐫𝐨𝐱𝐲 𝐟𝐨𝐫𝐰𝐚𝐫𝐝𝐬 𝐆𝐄𝐓, 𝐏𝐎𝐒𝐓, 𝐏𝐔𝐓, 𝐃𝐄𝐋𝐄𝐓𝐄, 𝐏𝐀𝐓𝐂𝐇, 𝐎𝐏𝐓𝐈𝐎𝐍𝐒, 𝐇𝐄𝐀𝐃, 𝐡𝐞𝐚𝐝𝐞𝐫𝐬, 𝐜𝐨𝐨𝐤𝐢𝐞𝐬, 𝐫𝐞𝐪𝐮𝐞𝐬𝐭 𝐛𝐨𝐝𝐢𝐞𝐬, 𝐚𝐧𝐝 𝐪𝐮𝐞𝐫𝐲 𝐬𝐭𝐫𝐢𝐧𝐠𝐬.**
 
-### <b>Reserved Slugs</b>
+### **𝐑𝐞𝐬𝐞𝐫𝐯𝐞𝐝 𝐒𝐥𝐮𝐠𝐬**
 
-<b>Do not use platform routes such as `api` as a project slug.</b>
+**𝐃𝐨 𝐧𝐨𝐭 𝐮𝐬𝐞 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐫𝐨𝐮𝐭𝐞𝐬 𝐬𝐮𝐜𝐡 𝐚𝐬 `api` 𝐚𝐬 𝐚 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐬𝐥𝐮𝐠.**
 
-<b>Recommended:</b>
+**𝐑𝐞𝐜𝐨𝐦𝐦𝐞𝐧𝐝𝐞𝐝:**
 
 ```text
 my-app
@@ -263,25 +265,25 @@ upload-test
 
 ---
 
-## <b>📡 API Reference</b>
+## **📡 𝐀𝐏𝐈 𝐑𝐞𝐟𝐞𝐫𝐞𝐧𝐜𝐞**
 
-| <b>Method</b> | <b>Endpoint</b> | <b>Auth</b> | <b>Purpose</b> |
+| **𝐌𝐞𝐭𝐡𝐨𝐝** | **𝐄𝐧𝐝𝐩𝐨𝐢𝐧𝐭** | **𝐀𝐮𝐭𝐡** | **𝐏𝐮𝐫𝐩𝐨𝐬𝐞** |
 |---|---|---|---|
-| `POST` | `/api/auth` | <b>No</b> | <b>Authenticate administrator</b> |
-| `POST` | `/api/upload` | <b>Yes</b> | <b>Upload ZIP project</b> |
-| `POST` | `/api/start` | <b>Yes</b> | <b>Start project</b> |
-| `POST` | `/api/stop` | <b>Yes</b> | <b>Stop project</b> |
-| `POST` | `/api/restart` | <b>Yes</b> | <b>Restart project</b> |
-| `POST` | `/api/projects/&lt;slug&gt;/edit` | <b>Yes</b> | <b>Edit metadata</b> |
-| `DELETE` | `/api/projects/&lt;slug&gt;` | <b>Yes</b> | <b>Delete project</b> |
-| `GET` | `/api/projects` | <b>Yes</b> | <b>List projects</b> |
-| `GET` | `/api/projects/public` | <b>No</b> | <b>Public projects</b> |
-| `GET` | `/api/download/&lt;slug&gt;` | <b>Yes</b> | <b>Download source ZIP</b> |
-| `GET` | `/api/logs/&lt;slug&gt;` | <b>Yes</b> | <b>Read process logs</b> |
+| `POST` | `/api/auth` | **𝐍𝐨** | **𝐀𝐮𝐭𝐡𝐞𝐧𝐭𝐢𝐜𝐚𝐭𝐞 𝐚𝐝𝐦𝐢𝐧𝐢𝐬𝐭𝐫𝐚𝐭𝐨𝐫** |
+| `POST` | `/api/upload` | **𝐘𝐞𝐬** | **𝐔𝐩𝐥𝐨𝐚𝐝 𝐙𝐈𝐏 𝐩𝐫𝐨𝐣𝐞𝐜𝐭** |
+| `POST` | `/api/start` | **𝐘𝐞𝐬** | **𝐒𝐭𝐚𝐫𝐭 𝐩𝐫𝐨𝐣𝐞𝐜𝐭** |
+| `POST` | `/api/stop` | **𝐘𝐞𝐬** | **𝐒𝐭𝐨𝐩 𝐩𝐫𝐨𝐣𝐞𝐜𝐭** |
+| `POST` | `/api/restart` | **𝐘𝐞𝐬** | **𝐑𝐞𝐬𝐭𝐚𝐫𝐭 𝐩𝐫𝐨𝐣𝐞𝐜𝐭** |
+| `POST` | `/api/projects/<slug>/edit` | **𝐘𝐞𝐬** | **𝐄𝐝𝐢𝐭 𝐦𝐞𝐭𝐚𝐝𝐚𝐭𝐚** |
+| `DELETE` | `/api/projects/<slug>` | **𝐘𝐞𝐬** | **𝐃𝐞𝐥𝐞𝐭𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭** |
+| `GET` | `/api/projects` | **𝐘𝐞𝐬** | **𝐋𝐢𝐬𝐭 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬** |
+| `GET` | `/api/projects/public` | **𝐍𝐨** | **𝐏𝐮𝐛𝐥𝐢𝐜 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬** |
+| `GET` | `/api/download/<slug>` | **𝐘𝐞𝐬** | **𝐃𝐨𝐰𝐧𝐥𝐨𝐚𝐝 𝐬𝐨𝐮𝐫𝐜𝐞 𝐙𝐈𝐏** |
+| `GET` | `/api/logs/<slug>` | **𝐘𝐞𝐬** | **𝐑𝐞𝐚𝐝 𝐩𝐫𝐨𝐜𝐞𝐬𝐬 𝐥𝐨𝐠𝐬** |
 
 ---
 
-## <b>🗂️ Repository Structure</b>
+## **🗂️ 𝐑𝐞𝐩𝐨𝐬𝐢𝐭𝐨𝐫𝐲 𝐒𝐭𝐫𝐮𝐜𝐭𝐮𝐫𝐞**
 
 ```text
 APIH9S5/
@@ -309,9 +311,9 @@ APIH9S5/
 
 ---
 
-## <b>⚙️ Installation</b>
+## **⚙️ 𝐈𝐧𝐬𝐭𝐚𝐥𝐥𝐚𝐭𝐢𝐨𝐧**
 
-### <b>Requirements</b>
+### **𝐑𝐞𝐪𝐮𝐢𝐫𝐞𝐦𝐞𝐧𝐭𝐬**
 
 ```text
 Python 3.10+
@@ -321,14 +323,14 @@ psutil
 python-dotenv
 ```
 
-### <b>Install</b>
+### **𝐈𝐧𝐬𝐭𝐚𝐥𝐥**
 
 ```bash
 pip install -r requirements.txt
 cp .env.example .env
 ```
 
-### <b>Configure</b>
+### **𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐞**
 
 ```env
 ADMIN_PASSWORD=change-this-password
@@ -336,13 +338,13 @@ SECRET_KEY=change-this-secret
 FLASK_PORT=8080
 ```
 
-### <b>Run</b>
+### **𝐑𝐮𝐧**
 
 ```bash
 python app.py
 ```
 
-<b>Default address:</b>
+**𝐃𝐞𝐟𝐚𝐮𝐥𝐭 𝐚𝐝𝐝𝐫𝐞𝐬𝐬:**
 
 ```text
 http://127.0.0.1:8080
@@ -350,29 +352,29 @@ http://127.0.0.1:8080
 
 ---
 
-## <b>🖥️ Web Interface</b>
+## **🖥️ 𝐖𝐞𝐛 𝐈𝐧𝐭𝐞𝐫𝐟𝐚𝐜𝐞**
 
-### <b>Admin Panel</b>
+### **𝐀𝐝𝐦𝐢𝐧 𝐏𝐚𝐧𝐞𝐥**
 
 ```text
 /#/9x
 ```
 
-<b>Includes project management, ZIP upload, start/stop/restart, deletion, logs, and metadata editing.</b>
+**𝐈𝐧𝐜𝐥𝐮𝐝𝐞𝐬 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐦𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭, 𝐙𝐈𝐏 𝐮𝐩𝐥𝐨𝐚𝐝, 𝐬𝐭𝐚𝐫𝐭/𝐬𝐭𝐨𝐩/𝐫𝐞𝐬𝐭𝐚𝐫𝐭, 𝐝𝐞𝐥𝐞𝐭𝐢𝐨𝐧, 𝐥𝐨𝐠𝐬, 𝐚𝐧𝐝 𝐦𝐞𝐭𝐚𝐝𝐚𝐭𝐚 𝐞𝐝𝐢𝐭𝐢𝐧𝐠.**
 
-### <b>Public Gallery</b>
+### **𝐏𝐮𝐛𝐥𝐢𝐜 𝐆𝐚𝐥𝐥𝐞𝐫𝐲**
 
 ```text
 /
 ```
 
-<b>Displays active projects and public metadata.</b>
+**𝐃𝐢𝐬𝐩𝐥𝐚𝐲𝐬 𝐚𝐜𝐭𝐢𝐯𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐚𝐧𝐝 𝐩𝐮𝐛𝐥𝐢𝐜 𝐦𝐞𝐭𝐚𝐝𝐚𝐭𝐚.**
 
 ---
 
-## <b>🔧 Port & Process Management</b>
+## **🔧 𝐏𝐨𝐫𝐭 & 𝐏𝐫𝐨𝐜𝐞𝐬𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭**
 
-<b>APIH9S5 searches for an available port starting from `5000` and stores runtime information in `ports.json`.</b>
+**𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐬𝐞𝐚𝐫𝐜𝐡𝐞𝐬 𝐟𝐨𝐫 𝐚𝐧 𝐚𝐯𝐚𝐢𝐥𝐚𝐛𝐥𝐞 𝐩𝐨𝐫𝐭 𝐬𝐭𝐚𝐫𝐭𝐢𝐧𝐠 𝐟𝐫𝐨𝐦 `5000` 𝐚𝐧𝐝 𝐬𝐭𝐨𝐫𝐞𝐬 𝐫𝐮𝐧𝐭𝐢𝐦𝐞 𝐢𝐧𝐟𝐨𝐫𝐦𝐚𝐭𝐢𝐨𝐧 𝐢𝐧 `ports.json`.**
 
 ```json
 {
@@ -384,7 +386,7 @@ http://127.0.0.1:8080
 }
 ```
 
-<b>Managed lifecycle:</b>
+**𝐌𝐚𝐧𝐚𝐠𝐞𝐝 𝐥𝐢𝐟𝐞𝐜𝐲𝐜𝐥𝐞:**
 
 ```text
 START
@@ -395,24 +397,24 @@ DELETE
 
 ---
 
-## <b>🔐 Security</b>
+## **🔐 𝐒𝐞𝐜𝐮𝐫𝐢𝐭𝐲**
 
-<b>Before public deployment:</b>
+**𝐁𝐞𝐟𝐨𝐫𝐞 𝐩𝐮𝐛𝐥𝐢𝐜 𝐝𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭:**
 
-1. <b>Change the default admin password.</b>
-2. <b>Use a strong random `SECRET_KEY`.</b>
-3. <b>Use HTTPS.</b>
-4. <b>Place APIH9S5 behind Nginx, Caddy, or another production proxy.</b>
-5. <b>Restrict upload size and file types.</b>
-6. <b>Never execute untrusted uploaded code without isolation.</b>
-7. <b>Consider container-based sandboxing for multi-user hosting.</b>
-8. <b>Prevent uploaded projects from exposing sensitive `.env` files.</b>
+𝟏. **𝐂𝐡𝐚𝐧𝐠𝐞 𝐭𝐡𝐞 𝐝𝐞𝐟𝐚𝐮𝐥𝐭 𝐚𝐝𝐦𝐢𝐧 𝐩𝐚𝐬𝐬𝐰𝐨𝐫𝐝.**
+𝟐. **𝐔𝐬𝐞 𝐚 𝐬𝐭𝐫𝐨𝐧𝐠 𝐫𝐚𝐧𝐝𝐨𝐦 `SECRET_KEY`.**
+𝟑. **𝐔𝐬𝐞 𝐇𝐓𝐓𝐏𝐒.**
+𝟒. **𝐏𝐥𝐚𝐜𝐞 𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐛𝐞𝐡𝐢𝐧𝐝 𝐍𝐠𝐢𝐧𝐱, 𝐂𝐚𝐝𝐝𝐲, 𝐨𝐫 𝐚𝐧𝐨𝐭𝐡𝐞𝐫 𝐩𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧 𝐩𝐫𝐨𝐱𝐲.**
+𝟓. **𝐑𝐞𝐬𝐭𝐫𝐢𝐜𝐭 𝐮𝐩𝐥𝐨𝐚𝐝 𝐬𝐢𝐳𝐞 𝐚𝐧𝐝 𝐟𝐢𝐥𝐞 𝐭𝐲𝐩𝐞𝐬.**
+𝟔. **𝐍𝐞𝐯𝐞𝐫 𝐞𝐱𝐞𝐜𝐮𝐭𝐞 𝐮𝐧𝐭𝐫𝐮𝐬𝐭𝐞𝐝 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐝𝐞 𝐰𝐢𝐭𝐡𝐨𝐮𝐭 𝐢𝐬𝐨𝐥𝐚𝐭𝐢𝐨𝐧.**
+𝟕. **𝐂𝐨𝐧𝐬𝐢𝐝𝐞𝐫 𝐜𝐨𝐧𝐭𝐚𝐢𝐧𝐞𝐫-𝐛𝐚𝐬𝐞𝐝 𝐬𝐚𝐧𝐝𝐛𝐨𝐱𝐢𝐧𝐠 𝐟𝐨𝐫 𝐦𝐮𝐥𝐭𝐢-𝐮𝐬𝐞𝐫 𝐡𝐨𝐬𝐭𝐢𝐧𝐠.**
+𝟖. **𝐏𝐫𝐞𝐯𝐞𝐧𝐭 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐩𝐫𝐨𝐣𝐞𝐜𝐭𝐬 𝐟𝐫𝐨𝐦 𝐞𝐱𝐩𝐨𝐬𝐢𝐧𝐠 𝐬𝐞𝐧𝐬𝐢𝐭𝐢𝐯𝐞 `.env` 𝐟𝐢𝐥𝐞𝐬.**
 
-> <b>⚠️ IMPORTANT:</b> <b>APIH9S5 executes uploaded Python applications as subprocesses. Treat uploaded code as untrusted code.</b>
+> **⚠️ 𝐈𝐌𝐏𝐎𝐑𝐓𝐀𝐍𝐓:** **𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐞𝐱𝐞𝐜𝐮𝐭𝐞𝐬 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐏𝐲𝐭𝐡𝐨𝐧 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧𝐬 𝐚𝐬 𝐬𝐮𝐛𝐩𝐫𝐨𝐜𝐞𝐬𝐬𝐞𝐬. 𝐓𝐫𝐞𝐚𝐭 𝐮𝐩𝐥𝐨𝐚𝐝𝐞𝐝 𝐜𝐨𝐝𝐞 𝐚𝐬 𝐮𝐧𝐭𝐫𝐮𝐬𝐭𝐞𝐝 𝐜𝐨𝐝𝐞.**
 
 ---
 
-## <b>🚀 Production Deployment</b>
+## **🚀 𝐏𝐫𝐨𝐝𝐮𝐜𝐭𝐢𝐨𝐧 𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭**
 
 ```mermaid
 flowchart LR
@@ -443,23 +445,23 @@ flowchart LR
 
 ---
 
-## <b>🛠️ Technology Stack</b>
+## **🛠️ 𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐲 𝐒𝐭𝐚𝐜𝐤**
 
-| <b>Layer</b> | <b>Technology</b> |
+| **𝐋𝐚𝐲𝐞𝐫** | **𝐓𝐞𝐜𝐡𝐧𝐨𝐥𝐨𝐠𝐲** |
 |---|---|
-| <b>Backend</b> | <b>Python</b> |
-| <b>Framework</b> | <b>Flask</b> |
-| <b>Frontend</b> | <b>HTML / CSS / Vanilla JavaScript</b> |
-| <b>HTTP Proxy</b> | <b>Requests</b> |
-| <b>Process Management</b> | <b>psutil + subprocess</b> |
-| <b>Configuration</b> | <b>python-dotenv</b> |
-| <b>Storage</b> | <b>JSON + Filesystem</b> |
-| <b>UI</b> | <b>Liquid Glass / Glassmorphism</b> |
-| <b>Deployment</b> | <b>Subprocess-based Flask Hosting</b> |
+| **𝐁𝐚𝐜𝐤𝐞𝐧𝐝** | **𝐏𝐲𝐭𝐡𝐨𝐧** |
+| **𝐅𝐫𝐚𝐦𝐞𝐰𝐨𝐫𝐤** | **𝐅𝐥𝐚𝐬𝐤** |
+| **𝐅𝐫𝐨𝐧𝐭𝐞𝐧𝐝** | **𝐇𝐓𝐌𝐋 / 𝐂𝐒𝐒 / 𝐕𝐚𝐧𝐢𝐥𝐥𝐚 𝐉𝐚𝐯𝐚𝐒𝐜𝐫𝐢𝐩𝐭** |
+| **𝐇𝐓𝐓𝐏 𝐏𝐫𝐨𝐱𝐲** | **𝐑𝐞𝐪𝐮𝐞𝐬𝐭𝐬** |
+| **𝐏𝐫𝐨𝐜𝐞𝐬𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭** | **𝐩𝐬𝐮𝐭𝐢𝐥 + 𝐬𝐮𝐛𝐩𝐫𝐨𝐜𝐞𝐬𝐬** |
+| **𝐂𝐨𝐧𝐟𝐢𝐠𝐮𝐫𝐚𝐭𝐢𝐨𝐧** | **𝐩𝐲𝐭𝐡𝐨𝐧-𝐝𝐨𝐭𝐞𝐧𝐯** |
+| **𝐒𝐭𝐨𝐫𝐚𝐠𝐞** | **𝐉𝐒𝐎𝐍 + 𝐅𝐢𝐥𝐞𝐬𝐲𝐬𝐭𝐞𝐦** |
+| **𝐔𝐈** | **𝐋𝐢𝐪𝐮𝐢𝐝 𝐆𝐥𝐚𝐬𝐬 / 𝐆𝐥𝐚𝐬𝐬𝐦𝐨𝐫𝐩𝐡𝐢𝐬𝐦** |
+| **𝐃𝐞𝐩𝐥𝐨𝐲𝐦𝐞𝐧𝐭** | **𝐒𝐮𝐛𝐩𝐫𝐨𝐜𝐞𝐬𝐬-𝐛𝐚𝐬𝐞𝐝 𝐅𝐥𝐚𝐬𝐤 𝐇𝐨𝐬𝐭𝐢𝐧𝐠** |
 
 ---
 
-## <b>📊 Internal Architecture</b>
+## **📊 𝐈𝐧𝐭𝐞𝐫𝐧𝐚𝐥 𝐀𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞**
 
 ```mermaid
 flowchart TB
@@ -491,9 +493,9 @@ flowchart TB
 
 ---
 
-## <b>📌 Design Philosophy</b>
+## **📌 𝐃𝐞𝐬𝐢𝐠𝐧 𝐏𝐡𝐢𝐥𝐨𝐬𝐨𝐩𝐡𝐲**
 
-<b>APIH9S5 deliberately avoids a traditional database for its core project registry.</b>
+**𝐀𝐏𝐈𝐇𝟗𝐒𝟓 𝐝𝐞𝐥𝐢𝐛𝐞𝐫𝐚𝐭𝐞𝐥𝐲 𝐚𝐯𝐨𝐢𝐝𝐬 𝐚 𝐭𝐫𝐚𝐝𝐢𝐭𝐢𝐨𝐧𝐚𝐥 𝐝𝐚𝐭𝐚𝐛𝐚𝐬𝐞 𝐟𝐨𝐫 𝐢𝐭𝐬 𝐜𝐨𝐫𝐞 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐫𝐞𝐠𝐢𝐬𝐭𝐫𝐲.**
 
 ```text
 Project Files       → projects/
@@ -503,11 +505,11 @@ Process Output      → .process.log
 Source Archive      → .source.zip
 ```
 
-<b>This keeps the platform lightweight, transparent, portable, and easy to back up.</b>
+**𝐓𝐡𝐢𝐬 𝐤𝐞𝐞𝐩𝐬 𝐭𝐡𝐞 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐥𝐢𝐠𝐡𝐭𝐰𝐞𝐢𝐠𝐡𝐭, 𝐭𝐫𝐚𝐧𝐬𝐩𝐚𝐫𝐞𝐧𝐭, 𝐩𝐨𝐫𝐭𝐚𝐛𝐥𝐞, 𝐚𝐧𝐝 𝐞𝐚𝐬𝐲 𝐭𝐨 𝐛𝐚𝐜𝐤 𝐮𝐩.**
 
 ---
 
-## <b>📍 Roadmap</b>
+## **📍 𝐑𝐨𝐚𝐝𝐦𝐚𝐩**
 
 ```text
 [x] ZIP project upload
@@ -531,9 +533,9 @@ Source Archive      → .source.zip
 
 ---
 
-## <b>🤝 Contributing</b>
+## **🤝 𝐂𝐨𝐧𝐭𝐫𝐢𝐛𝐮𝐭𝐢𝐧𝐠**
 
-<b>Contributions, improvements, bug reports, and architecture ideas are welcome.</b>
+**𝐂𝐨𝐧𝐭𝐫𝐢𝐛𝐮𝐭𝐢𝐨𝐧𝐬, 𝐢𝐦𝐩𝐫𝐨𝐯𝐞𝐦𝐞𝐧𝐭𝐬, 𝐛𝐮𝐠 𝐫𝐞𝐩𝐨𝐫𝐭𝐬, 𝐚𝐧𝐝 𝐚𝐫𝐜𝐡𝐢𝐭𝐞𝐜𝐭𝐮𝐫𝐞 𝐢𝐝𝐞𝐚𝐬 𝐚𝐫𝐞 𝐰𝐞𝐥𝐜𝐨𝐦𝐞.**
 
 ```text
 1. Fork the repository
@@ -546,17 +548,17 @@ Source Archive      → .source.zip
 
 ---
 
-## <b>📜 License</b>
+## **📜 𝐋𝐢𝐜𝐞𝐧𝐬𝐞**
 
-<b>MIT License — Built for the community.</b>
+**𝐌𝐈𝐓 𝐋𝐢𝐜𝐞𝐧𝐬𝐞 — 𝐁𝐮𝐢𝐥𝐭 𝐟𝐨𝐫 𝐭𝐡𝐞 𝐜𝐨𝐦𝐦𝐮𝐧𝐢𝐭𝐲.**
 
 ---
 
-<h2 align="center"><b>🚀 APIH9S5</b></h2>
+<h2 align="center"><b>🚀 𝐀𝐏𝐈𝐇𝟗𝐒𝟓</b></h2>
 
-<p align="center"><b>UPLOAD · DEPLOY · MANAGE · PROXY · HOST</b></p>
+<p align="center"><b>𝐔𝐏𝐋𝐎𝐀𝐃 · 𝐃𝐄𝐏𝐋𝐎𝐘 · 𝐌𝐀𝐍𝐀𝐆𝐄 · 𝐏𝐑𝐎𝐗𝐘 · 𝐇𝐎𝐒𝐓</b></p>
 
-<p align="center"><b>A lightweight Flask-based application hosting platform with a Liquid Glass interface, project lifecycle management, process supervision, and slug-based reverse proxy routing.</b></p>
+<p align="center"><b>𝐀 𝐥𝐢𝐠𝐡𝐭𝐰𝐞𝐢𝐠𝐡𝐭 𝐅𝐥𝐚𝐬𝐤-𝐛𝐚𝐬𝐞𝐝 𝐚𝐩𝐩𝐥𝐢𝐜𝐚𝐭𝐢𝐨𝐧 𝐡𝐨𝐬𝐭𝐢𝐧𝐠 𝐩𝐥𝐚𝐭𝐟𝐨𝐫𝐦 𝐰𝐢𝐭𝐡 𝐚 𝐋𝐢𝐪𝐮𝐢𝐝 𝐆𝐥𝐚𝐬𝐬 𝐢𝐧𝐭𝐞𝐫𝐟𝐚𝐜𝐞, 𝐩𝐫𝐨𝐣𝐞𝐜𝐭 𝐥𝐢𝐟𝐞𝐜𝐲𝐜𝐥𝐞 𝐦𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭, 𝐩𝐫𝐨𝐜𝐞𝐬𝐬 𝐬𝐮𝐩𝐞𝐫𝐯𝐢𝐬𝐢𝐨𝐧, 𝐚𝐧𝐝 𝐬𝐥𝐮𝐠-𝐛𝐚𝐬𝐞𝐝 𝐫𝐞𝐯𝐞𝐫𝐬𝐞 𝐩𝐫𝐨𝐱𝐲 𝐫𝐨𝐮𝐭𝐢𝐧𝐠.</b></p>
 
 <p align="center">
   <img src="https://capsule-render.vercel.app/api?type=waving&height=120&color=007edd&section=footer" alt="Footer"/>
